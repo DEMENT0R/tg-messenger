@@ -88,6 +88,26 @@ class Messenger
     }
 
     /**
+     * Remove webhook
+     *
+     * @param null $url
+     *
+     * @return bool|string
+     */
+    public function removeWebhook($url = null)
+    {
+        $ch    = curl_init($this->apiUrl . 'setWebhook');
+        $query = ['remove'];
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($query));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return $result;
+    }
+
+    /**
      * Webhook get
      * https://api.telegram.org/bot_BOT_TOKEN_/getWebhookInfo
      *
