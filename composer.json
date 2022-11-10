@@ -1,0 +1,20 @@
+{
+    "name": "dement0r/tg-messenger",
+    "description": "A simple Telegram message sending composer package",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dement0r",
+            "email": "maxim@bezrukavnikov.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {"dement0r\\TgMessenger\\": "src/"}
+    },
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    }
+}
