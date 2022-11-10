@@ -17,6 +17,7 @@ class Messenger
      * Get message
      *
      * @return mixed
+     * @throws Exception
      */
     public function getMessage()
     {
@@ -27,7 +28,9 @@ class Messenger
 
     /**
      * Get content update
+     *
      * @return mixed|void
+     * @throws Exception
      */
     private function getContentUpdate()
     {
@@ -35,7 +38,7 @@ class Messenger
         $update  = json_decode($content, true);
 
         if (!$update) {
-            exit;
+            throw new Exception('Error! No update!');
         }
 
         return $update;
