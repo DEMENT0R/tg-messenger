@@ -93,11 +93,9 @@ class Messenger
     /**
      * Remove webhook
      *
-     * @param null $url
-     *
      * @return bool|string
      */
-    public function removeWebhook($url = null)
+    public function removeWebhook()
     {
         $ch    = curl_init($this->apiUrl . 'setWebhook');
         $query = ['remove'];
