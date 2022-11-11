@@ -6,6 +6,10 @@ A simple Telegram message sending composer package
 
 `composer require dement0r/tg-messenger:dev-master`
 
+### Requirements
+ * ext-curl
+ * ext-json
+
 ### Using
 
 Create object:
