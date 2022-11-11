@@ -54,7 +54,7 @@ class Messenger
      * @return false|mixed
      * @throws Exception
      */
-    public function sendMessage(int $chatId, string $text, int $messageId = null)
+    public function sendMessage(int $chatId, string $text, int $messageId = null, array $replayMarkup = null)
     {
         $request = [
             'chat_id' => $chatId,
@@ -62,6 +62,9 @@ class Messenger
         ];
         if ($messageId) {
             $request['reply_to_message_id'] = $messageId;
+        }
+        if ($replayMarkup) {
+            $request['reply_markup'] = $replayMarkup;
         }
 
         return $this->apiRequest('sendMessage', $request);

@@ -34,4 +34,13 @@ Getting message from webhook url:
 
 Sending message:
 
-`$bot->sendMessage('chat_id', 'text', 'message_id')`
+`$bot->sendMessage('chat_id', 'text', 'message_id', $markupArray)`
+
+Пример разметки:
+```
+$markupArray = [
+    'keyboard'          => [['Info', 'Test', 'Help']],
+    'one_time_keyboard' => false,
+    'resize_keyboard'   => true,
+],
+```
