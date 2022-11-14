@@ -4,9 +4,12 @@ A simple Telegram message sending composer package
 
 ### Installation
 
+With composer:
+
 `composer require dement0r/tg-messenger:dev-master`
 
 ### Requirements
+ * PHP 7.4 or higher
  * ext-curl
  * ext-json
 
