@@ -39,7 +39,7 @@ Sending message:
 
 `$bot->sendMessage('chat_id', 'text', 'message_id', $markupArray)`
 
-Пример разметки:
+Markup example:
 ```
 $markupArray = [
     'keyboard'          => [['Info', 'Test', 'Help']],
