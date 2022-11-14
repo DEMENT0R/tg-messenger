@@ -1,19 +1,25 @@
 {
     "name": "dement0r/tg-messenger",
     "description": "A simple Telegram message sending composer package",
+    "keywords": ["php", "telegram", "api", "messenger", "bot"],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "dement0r",
-            "email": "maxim@bezrukavnikov.ru"
+            "email": "maxim@bezrukavnikov.ru",
+            "homepage": "https://bezrukavnikov.ru",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "stable",
     "autoload": {
-        "psr-4": {"dement0r\\TgMessenger\\": "src/"}
+        "psr-4": {
+            "dement0r\\TgMessenger\\": "src/"
+        }
     },
     "require": {
+        "php": ">=7.4",
         "ext-curl": "*",
         "ext-json": "*"
     }
