@@ -47,27 +47,29 @@ class Messenger
     /**
      * Send message
      *
-     * @param int      $chatId
-     * @param string   $text
-     * @param int|null $messageId
+     * @param int        $chatId
+     * @param string     $messageText
+     * @param int|null   $messageId
+     * @param array|null $replayMarkup
      *
-     * @return false|mixed
      * @throws Exception
      */
-    public function sendMessage(int $chatId, string $text, int $messageId = null, array $replayMarkup = null)
+    public function sendMessage(int $chatId, string $messageText, int $messageId = null, array $replayMarkup = null)
     {
-        $request = [
-            'chat_id' => $chatId,
-            'text'    => $text,
-        ];
-        if ($messageId) {
-            $request['reply_to_message_id'] = $messageId;
+        $texts = str_split($messageText, 4094);
+        foreach ($texts as $text) {
+            $request = [
+                'chat_id' => $chatId,
+                'text'    => $text,
+            ];
+            if ($messageId) {
+                $request['reply_to_message_id'] = $messageId;
+            }
+            if ($replayMarkup) {
+                $request['reply_markup'] = $replayMarkup;
+            }
+            $this->apiRequest('sendMessage', $request);
         }
-        if ($replayMarkup) {
-            $request['reply_markup'] = $replayMarkup;
-        }
-
-        return $this->apiRequest('sendMessage', $request);
     }
 
     /**
