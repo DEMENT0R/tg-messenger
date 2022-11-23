@@ -55,6 +55,7 @@ class Messenger
      * @param string     $messageText
      * @param int|null   $messageId
      * @param array|null $replayMarkup
+     * @param string     $markup
      *
      * @throws Exception
      */
