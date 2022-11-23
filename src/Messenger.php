@@ -23,6 +23,10 @@ class Messenger
     {
         $update = $this->getContentUpdate();
 
+        if (!isset($update['message']) || !$update['message']) {
+            throw new Exception('Message receiving error!');
+        }
+
         return $update['message'];
     }
 
