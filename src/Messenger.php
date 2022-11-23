@@ -58,7 +58,7 @@ class Messenger
      *
      * @throws Exception
      */
-    public function sendMessage(int $chatId, string $messageText, int $messageId = null, array $replayMarkup = null)
+    public function sendMessage(int $chatId, string $messageText, int $messageId = null, array $replayMarkup = null, string $markup = 'Markdown')
     {
         $texts = str_split($messageText, 4094);
         foreach ($texts as $text) {
@@ -71,6 +71,9 @@ class Messenger
             }
             if ($replayMarkup) {
                 $request['reply_markup'] = $replayMarkup;
+            }
+            if ($markup) {
+                $request['parse_markup'] = $markup;
             }
             $this->apiRequest('sendMessage', $request);
         }
