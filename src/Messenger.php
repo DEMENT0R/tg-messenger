@@ -51,11 +51,11 @@ class Messenger
     /**
      * Send message
      *
-     * @param int        $chatId
-     * @param string     $messageText
-     * @param int|null   $messageId
-     * @param array|null $replayMarkup
-     * @param string     $parseMode
+     * @param int         $chatId
+     * @param string      $messageText
+     * @param int|null    $messageId
+     * @param array|null  $replayMarkup
+     * @param string|null $parseMode    // 'HTML', 'Markdown', 'MarkdownV2'
      *
      * @throws Exception
      */
@@ -64,7 +64,7 @@ class Messenger
         string $messageText,
         int $messageId = null,
         array $replayMarkup = null,
-        string $parseMode = 'Markdown'
+        string $parseMode = null
     ) {
         $texts = str_split($messageText, 4094);
         foreach ($texts as $text) {
